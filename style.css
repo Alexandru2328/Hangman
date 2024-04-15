@@ -1,0 +1,46 @@
+body {
+    text-align: center;
+    background-color:rgb(47, 161, 210);
+
+}
+
+#hideWord, p {
+    display: inline;
+    margin: 7px;
+    font-size: xx-large;
+    font-weight: bold;
+}
+
+#game {
+    width: 45%;
+    margin-right: 35%;
+    text-align: center;
+    margin-left: 30%;
+    margin-top: 10%;
+    margin-bottom: 15%;
+}
+.keyboard {
+    background-color: rgb(165, 216, 36);
+    width: 60px;
+    height: 60px;
+   border-radius: 60px;
+}
+
+#startGame {
+    width: 100px;
+    border-radius: 45px;
+    background-color: blue;
+    height: 100px;
+}
+
+#btnNewGame {
+    border-radius: 45px;
+    background-color: chartreuse;
+    width: 150px;
+    height: 78px;
+    top: 75%;
+    right: 43%;
+    position: absolute;
+    
+}
+
