@@ -42,7 +42,7 @@ function checkStatus() {
         newGame();
     } else if (nrMistakes === 6) {
         let lost = document.createElement("h1");
-        lost = "SORRY YOU LOST<br>" +"The word was<br>" +
+        lost = "SORRY YOU LOST<br>" + "The word was<br>" +
                `${randomWord}`;
         let divGame = document.getElementById("game");
         divGame.innerHTML = lost;
