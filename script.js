@@ -2,15 +2,15 @@ const words = ["banana", "apple", "car", "airplane", "romania", "wallcode"];
 const alphabet = 'abcdefghijklmnopqrstuvwxyz';
 let randomWord = getRandomWord(words);
 let guessedLetter = 0;
-let nrLife = 0;
+let nrMistakes = 0;
 let lettersFound = "";
 let images = [
-    'img1.jpg',
-    'img2.jpg',
-    'img3.jpg',
-    'img4.jpg',
-    'img5.jpg',
-    'img6.jpg'
+    'img/img1.jpg',
+    'img/img2.jpg',
+    'img/img3.jpg',
+    'img/img4.jpg',
+    'img/img5.jpg',
+    'img/img6.jpg'
 ];
 
 function getRandomWord(words) {
@@ -23,31 +23,28 @@ function resetGame() {
 
 function newGame() {
     let divNewGame = document.getElementById("newGame");
-    if (divNewGame) {
-        let button = document.createElement("button");
-        button.textContent = "New Game";
-        button.id = "btnNewGame";
-        button.addEventListener('click', function() {
-            resetGame();
-        });
-        divNewGame.appendChild(button);
-    }
+    let button = document.createElement("button");
+    button.textContent = "New Game";
+    button.id = "btnNewGame";
+    button.addEventListener('click', function() {
+         resetGame();
+    });
+    divNewGame.appendChild(button);
+
 }
 
 function checkStatus() {
     if (guessedLetter === randomWord.length) {
         let win = document.createElement("h1");
         win = "CONGRATULATIONS YOU WIN !!";
-        win.classList = "mesaje";
         let divGame = document.getElementById("game");
         divGame.innerHTML = win;
         newGame();
-    } else if (nrLife == 6) {
+    } else if (nrMistakes === 6) {
         let lost = document.createElement("h1");
         lost = "<strong>SORRY YOU LOST</strong><br>" +
-         "<strong>The word was</strong><br>" +
-          `<strong>${randomWord}</strong>`;
-          lost.classList = "mesaje;"
+               "<strong>The word was</strong><br>" +
+               `<strong>${randomWord}</strong>`;
         let divGame = document.getElementById("game");
         divGame.innerHTML = lost;
         newGame();
@@ -64,25 +61,26 @@ function checkLetter(letter) {
                 ++guessedLetter;
             }
             ++checkNrLettersFound;
-        } else if (checkNrLettersFound === 0 && i === randomWord.length - 1) {
-            let img = document.getElementById("myFriend");
-            let card = document.getElementById("card");
-            img.src = images[nrLife];
-            ++nrLife;
-            card.appendChild = (img);
-        }
+        } 
+    }
+    if (checkNrLettersFound === 0) {
+        let img = document.getElementById("myFriend");
+        let card = document.getElementById("card");
+        img.src = images[nrMistakes];
+        ++nrMistakes;
+        card.appendChild = (img);
     }
     lettersFound += letter;
     checkStatus();
 }
 
 function hideWord() {
-    let hideEl = document.getElementById("hideWord");
-    for (let i = 0; i < randomWord.length; i++) {
-        let pElement = document.createElement('p');
-        pElement.textContent = '_';
-        pElement.id = i;
-        hideEl.appendChild(pElement);
+    let divHideWord = document.getElementById("hideWord");
+    for (let i = 0; i < randomWord.length; ++i) {
+        let hiddenLetter = document.createElement('p');
+        hiddenLetter.textContent = '_';
+        hiddenLetter.id = i;
+        divHideWord.appendChild(hiddenLetter);
     }
 }
 
@@ -92,11 +90,11 @@ function startGame() {
     let buttonStart = document.getElementById("startGame")
     card.removeChild(buttonStart);
     let img = document.createElement("img");
-    img.src = "first.jpg";
+    img.src = "img/first.jpg";
     img.id= "myFriend";
     card.appendChild(img);
     hideWord();
-    for (let i = 0; i < alphabet.length; i++) {
+    for (let i = 0; i < alphabet.length; ++i) {
         let letter = alphabet[i];
         let button = document.createElement("button");
         button.className = "keyboard";
