@@ -105,6 +105,3 @@ function startGame() {
         buttonsDiv.appendChild(button);
     }
 }
-function abc(params) {
-    let = 5;
-}
