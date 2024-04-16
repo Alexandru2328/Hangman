@@ -30,7 +30,6 @@ function newGame() {
          resetGame();
     });
     divNewGame.appendChild(button);
-
 }
 
 function checkStatus() {
