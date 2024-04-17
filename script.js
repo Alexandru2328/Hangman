@@ -51,7 +51,7 @@ function checkStatus() {
 
 function checkLetter(letter) {
     let checkNrLettersFound = 0;
-    for (let i = 0; i < randomWord.length; i++) {
+    for (let i = 0; i < randomWord.length; ++i) {
         if (letter === randomWord[i]) {
             let showLetter = document.getElementById(i);
             showLetter.innerHTML = letter;
